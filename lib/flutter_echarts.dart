@@ -80,11 +80,16 @@ class _EchartsState extends State<Echarts> {
           },
         ),
       )
-      ..addJavaScriptChannel('Messager', onMessageReceived: (JavaScriptMessage javascriptMessage) {
-        if (widget.onMessage != null) {
-          widget.onMessage!(javascriptMessage.message);
-        }
-      });
+      ..addJavaScriptChannel(
+        "Messager",
+        onMessageReceived: (message) {
+          print("📥 Received message from WebView: ${message.message}");
+          if (widget.onMessage != null) {
+            widget.onMessage!(message.message);
+          }
+        },
+      )
+    ;
 
     if (widget.reloadAfterInit) {
       new Future.delayed(const Duration(milliseconds: 100), () {
