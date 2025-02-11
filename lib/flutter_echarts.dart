@@ -83,7 +83,7 @@ class _EchartsState extends State<Echarts> {
       )
       ..addJavaScriptChannel(
         "Messager",
-        onMessageReceived: (message) {
+        onMessageReceived: (JavaScriptMessage message) {
           print("📥 Received message from WebView: ${message.message}");
           if (widget.onMessage != null) {
             widget.onMessage!(message.message);
