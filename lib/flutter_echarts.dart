@@ -64,6 +64,7 @@ class _EchartsState extends State<Echarts> {
   @override
   void initState() {
     super.initState();
+    print('inside pckg flutter_echarts --------------- ');
     _currentOption = widget.option;
 
     _controller = WebViewController()
